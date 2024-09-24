@@ -1,0 +1,10 @@
+[logging.basicConfig]
+level = "DEBUG"  # Set to DEBUG to capture all log levels
+format = "%(asctime)s - %(levelname)s - %(processName)s - %(message)s"
+datefmt = "%Y-%m-%d %H:%M:%S"
+handlers = ["stream"]
+
+
+[handlers]
+#file.filename = "bank_operations.log"
+stream = true 
