@@ -1,0 +1,55 @@
+# version: '3'
+
+services:
+  zookeeper:
+    image: bitnami/zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    networks:
+      - kafka-network
+
+  kafka:
+    image: bitnami/kafka
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092 
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:29092,OUTSIDE://your_ip_address_here:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    networks:
+      - kafka-network
+
+  spark-master:
+    image: bitnami/spark
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    volumes:
+        - /mnt/d/Курсы и тренинги/Data Engineer Нетология/Spark Structured Streaming:/opt/spark/work-dir
+    environment:
+      - SPARK_MODE=master
+    networks:
+      - kafka-network
+
+  spark-worker:
+    image: bitnami/spark
+    volumes:
+        - /mnt/d/Курсы и тренинги/Data Engineer Нетология/Spark Structured Streaming:/opt/spark/work-dir
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_WORKER_MASTER=spark://spark-master:7077
+    depends_on:
+      - spark-master
+    networks:
+      - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge
+
