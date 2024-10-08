@@ -5,8 +5,7 @@ Spark Structured Streaming was used as the message consumer.
 
 # In this project:
 Two Docker containers from Bitnami were deployed for Spark and Kafka.
-- A .yml file was created to organize a unified network for information exchange between the containers, with internal and external Kafka listeners configured.
-- The docker-compose command was used for deploying the containers
+- A **docker-compose.yml** file was created to organize a unified network for information exchange between the containers, with internal and external Kafka listeners configured.
 - A script named **producer.py** was written.
 - Port forwarding was configured, allowing messages from the producer to be received through the host into the Kafka broker.
 - A consumer script, named **structure_streaming_kafka.py**, for subscribing to the Kafka topic was written.
