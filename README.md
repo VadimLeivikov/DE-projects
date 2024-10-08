@@ -9,7 +9,7 @@ Two Docker containers from Bitnami were deployed for Spark and Kafka.
 - A script named **producer.py** was written.
 - Port forwarding was configured, allowing messages from the producer to be received through the host into the Kafka broker.
 - A consumer script, named **structure_streaming_kafka.py**, for subscribing to the Kafka topic was written.
-- Message reception was configured.
+- Message reception has been parsed and configured.
 - A dataset with static information was added.
 - A test join of static and dynamic streams was configured.
 - Aggregate processing was applied to count the number of messages in each batch.
