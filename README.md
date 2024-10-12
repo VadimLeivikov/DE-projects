@@ -15,7 +15,13 @@ Two Docker containers from Bitnami were deployed for Spark and Kafka.
 - Aggregate processing was applied to count the number of messages in each batch.
 
 # Result
+The origin stream from producer:
+![Producer stream](https://github.com/VadimLeivikov/DE-projects/blob/kafka-spark-streaming/Producer%20stream.png)
+
+Spark is reading topic after joining static and dynamic streams:
 ![Spark is reading topic after joining streams](https://github.com/VadimLeivikov/DE-projects/blob/kafka-spark-streaming/join%20streams_1.JPG)
+
+Spark is aggregating the stream:
 ![The result of aggregations](https://github.com/VadimLeivikov/DE-projects/blob/kafka-spark-streaming/aggregations.JPG)
 
 # Conclusion
