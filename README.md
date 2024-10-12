@@ -14,5 +14,9 @@ Two Docker containers from Bitnami were deployed for Spark and Kafka.
 - A test join of static and dynamic streams was configured.
 - Aggregate processing was applied to count the number of messages in each batch.
 
+# Result
+![Spark is reading topic after joining streams](https://github.com/VadimLeivikov/DE-projects/blob/kafka-spark-streaming/join%20streams_1.JPG)
+![The result of aggregations](https://github.com/VadimLeivikov/DE-projects/blob/kafka-spark-streaming/aggregations.JPG)
+
 # Conclusion
 This project demonstrates the integration of Kafka and Spark for real-time data processing.
