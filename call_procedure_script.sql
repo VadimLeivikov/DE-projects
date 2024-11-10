@@ -1,0 +1,1 @@
+CALL stage.load_raw_data();

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: bad_dates
+    description: "Model for populating the incorrect dates table"
+    columns:
+      - name: bad_date
+        description: "Incorrect date to check in `kaggle_sales_ready`"
+      - name: max_order_limit
+        description: "Max numbers of orders for current bad date"
+        name: count
+        description: "Fact numbers of orders for current bad date existing in the `kaggle_sales_ready`"
+
+  - name: orders
+    description: "The incremental model for loading orders from table `kaggle_sales_ready`"
+    columns:
+      - name: invoice_id
+        description: "Unique order identifier"
+      - name: product_id
+        description: "Identifier of the product"
+      - name: quantity
+        description: "Quantity of product in current order"
+      - name: customer_id
+        description: "Identifier of the client"
+      - name: branch_id
+        description: "Identifier of branch"
+      - name: order_date
+        description: "Order date concatenated from attributes 'Date' and 'Time'"
+
+snapshots:
+  - name: orders_snapshot
+    description: "Snapshot for tracking changes in the orders table"
+
