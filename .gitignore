@@ -1,2 +1,6 @@
-# ignoring PowerPoint presentation
+# ignoring PowerPoint presentation and Explanatory note
 *.pptx
+'Explanatory note.docx'
+
+#ignoring temp files
+~$
