@@ -1,6 +1,7 @@
 # ignoring PowerPoint presentation and Explanatory note
 *.pptx
-'Explanatory note.docx'
+"Explanatory note.docx"
 
 #ignoring temp files
 ~$
+*.tmp

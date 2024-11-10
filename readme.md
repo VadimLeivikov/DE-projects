@@ -32,7 +32,7 @@ The objective of this work is to demonstrate a grasp of key concepts in the subj
 * Apache Airflow 2.10.2  — for automating and orchestrating ETL processes
 * Docker 27.2.0  — for containerizing services
 * PowerBI Desktop 2.137.952.0 64-bit — for creating interactive dashboards
-* dbt Core 1.8.8 + Postgres plugin 1.8.2
+* dbt Core 1.8.8 + Postgres plugin 1.8.2 — utilized as additional ETL tool 
 
 
 ### Detailed description 
@@ -45,15 +45,13 @@ The following tasks were accomplished within the project using various technolog
 | No.	| Task Completed	| Technology Stack |
 |:-----:|:----------------------|:-----------------|
 | 1	| A data warehouse was created, and DDL and DML scripts were written for all layers of the data warehouse	| PostgreSQL |
-|2	|A daily report generator was created, simulating both "correct" data from a DQ perspective and erroneous data	|Python
-Docker|
-|3	|Orchestration of daily report loading was set up	|Crontab
-.bat script (SQL script execution) PostgreSQL stored procedure|
-|4	|A DAG was created to implement ETL processes for loading data into the data warehouse, validating it, and logging ETL task statuses	Apache Airflow |
+|2	|A daily report generator was created, simulating both "correct" data from a DQ perspective and erroneous data	|Python + Docker|
+|3	|Orchestration of daily report loading was set up	|Crontab + .bat script (SQL script execution) + PostgreSQL stored procedure|
+|4	|A DAG was created to implement ETL processes for loading data into the data warehouse, validating it, and logging ETL task statuses|	Apache Airflow |
 |5	|Dashboards were built based on the data mart layer	|Power BI |
 |6	|dbt models have been configured for an alternative ETL process setup and data quality (DQ) checks	| dbt |
 
-The structure of the NDS and DDS layers facilitates efficient storage and analysis of data, while the creation of dashboards helps visualize key metrics and improve decision-making processes.  
-The project demonstrates the potential for using ETL processes to automate data loading and provide flexibility in configuration and scaling. 
+The structure of the NDS and DDS layers facilitates efficient storage and analysis of data, while the creation of dashboards helps visualize key metrics and improve decision-making processes.<br> 
+The project demonstrates the potential for using ETL processes to automate data loading and provide flexibility in configuration and scaling.<br> 
 Additionally, data quality control and tracking of uploads are implemented through the dq and metadata layers.
 
